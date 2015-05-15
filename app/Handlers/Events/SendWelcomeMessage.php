@@ -5,18 +5,23 @@ use App\Events\UserWasRegistered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 
+use App\Repositories\User\UserRepositoryInterface;
+
 class SendWelcomeMessage implements ShouldBeQueued {
 
 	use InteractsWithQueue;
+
+
+	public $user;
 
 	/**
 	 * Create the event handler.
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct( UserRepositoryInterface $user )
 	{
-		//
+		$this->user = $user;
 	}
 
 	/**
@@ -27,8 +32,8 @@ class SendWelcomeMessage implements ShouldBeQueued {
 	 */
 	public function handle(UserWasRegistered $event)
 	{
-		//dd($event->userId);
-		
+
+		$this->user->sendWelcomeEmail( $event->userId );
 
 	}
 

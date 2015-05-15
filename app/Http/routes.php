@@ -19,10 +19,3 @@ post('/auth/login', [
 	'as' => 'auth.login',
 	'uses' => 'AuthController@postLogin'
 	]);
-
-
-
-get('/mandrill', function() {
-
-
-});

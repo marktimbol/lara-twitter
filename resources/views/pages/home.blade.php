@@ -20,16 +20,17 @@
 			</div>
 
 			<div class="col-md-5">
+
 				<div class="panel panel-default twitter-login-form">
 					<div class="panel-heading">
 						<h3 class="panel-title">Login</h3>
 					</div>
 					<div class="panel-body">
 						{!! Form::open( ['route' => 'auth.login']) !!}
-							<div class="form-group">
+							<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 								{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'email']) !!}
 							</div>
-							<div class="form-group row">
+							<div class="form-group row {{ $errors->has('password') ? 'has-error' : '' }}">
 								<div class="col-md-9">
 									{!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'password']) !!}
 								</div>
@@ -46,20 +47,22 @@
 	
 						{!! Form::close() !!}
 					</div>
-				</div>				
+				</div>	
+							
+
 				<div class="panel panel-default twitter-signup-form">
 					<div class="panel-heading">
 						<h3 class="panel-title">New to Twitter? Sign up</h3>
 					</div>
 					<div class="panel-body">
 						{!! Form::open( ['route' => 'auth.register']) !!}
-							<div class="form-group">
+							<div class="form-group {{ $errors->has('fullName') ? 'has-error' : '' }}">
 								{!! Form::text('fullName', null, ['class' => 'form-control', 'placeholder' => 'fullName']) !!}
 							</div>
-							<div class="form-group">
+							<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 								{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'email']) !!}
 							</div>
-							<div class="form-group">
+							<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
 								{!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'password']) !!}
 							</div>		
 							<div class="form-group text-right">
