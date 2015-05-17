@@ -20,12 +20,15 @@
 			</div>
 
 			<div class="col-md-5">
-
+				
 				<div class="panel panel-default twitter-login-form">
 					<div class="panel-heading">
 						<h3 class="panel-title">Login</h3>
 					</div>
 					<div class="panel-body">
+
+						@include('errors.message')
+
 						{!! Form::open( ['route' => 'auth.login']) !!}
 							<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 								{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'email']) !!}
@@ -48,7 +51,7 @@
 						{!! Form::close() !!}
 					</div>
 				</div>	
-							
+						
 
 				<div class="panel panel-default twitter-signup-form">
 					<div class="panel-heading">

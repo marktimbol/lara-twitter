@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"all.css","sourcesContent":[".status-list .media {\n  border-bottom: 1px solid #ddd;\n  padding-bottom: 10px;\n  margin-bottom: 20px; }\n\n/*# sourceMappingURL=app.css.map */"],"sourceRoot":"/source/"}

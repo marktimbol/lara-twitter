@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 //Requests
 use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\AuthLoginRequest;
 
 //Commands
 use App\Commands\UserRegisterCommand;
+
+use Auth;
+
+use Laracasts\Flash\Flash;
 
 
 
@@ -19,7 +24,7 @@ class AuthController extends Controller {
 
 		$this->dispatchFrom( UserRegisterCommand::class, $request );
 
-		return 'Done.';
+		return redirect()->route('user.profile');
 
 	}
 
@@ -29,9 +34,23 @@ class AuthController extends Controller {
 
 	}
 
-	public function postLogin() {
+	public function postLogin( AuthLoginRequest $request ) {
 
+		$credentials = [
+			'email'	 => $request->email,
+			'password'	=> $request->password
+		];
 
+		if( Auth::attempt( $credentials ) ) {
+
+			return redirect()->route('user.profile');
+
+		} else {
+
+			Flash::error('Incorrect Email/Password. Please try again.');
+			return redirect()->back()->withInput();
+
+		}
 
 	}
 }

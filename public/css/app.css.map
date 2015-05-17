@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAMC;EACC,+BAA8B;EAC9B,sBAAqB;EACrB,qBAAoB,EAHb","file":"app.css","sourcesContent":["\nbody {\n\n}\n\n.status-list {\n\t.media {\n\t\tborder-bottom: 1px solid #ddd;\n\t\tpadding-bottom: 10px;\n\t\tmargin-bottom: 20px;\n\t}\n}"],"sourceRoot":"/source/"}

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldBeQueued;
 
 use App\Repositories\User\UserRepositoryInterface;
 
-class SendWelcomeMessage implements ShouldBeQueued {
+class SendWelcomeEmail implements ShouldBeQueued {
 
 	use InteractsWithQueue;
 

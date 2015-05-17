@@ -1,7 +1,7 @@
 <?php namespace App\Providers;
 
 use App\Events\UserWasRegistered;
-use App\Handlers\Events\SendWelcomeMessage;
+use App\Handlers\Events\SendWelcomeEmail;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -19,7 +19,7 @@ class EventServiceProvider extends ServiceProvider {
 		],
 
 		UserWasRegistered::class => [
-			SendWelcomeMessage::class,		
+			SendWelcomeEmail::class,		
 		],
 	];
 

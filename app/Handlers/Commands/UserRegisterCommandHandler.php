@@ -8,6 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 
 use App\Repositories\User\UserRepositoryInterface;
 
+use Auth;
+
 class UserRegisterCommandHandler {
 
 	protected $user;
@@ -37,6 +39,8 @@ class UserRegisterCommandHandler {
 		];
 
 		$user = $this->user->store( $data );
+
+		Auth::login( $user );
 
 		event(new UserWasRegistered( $user->id ));
 	}
